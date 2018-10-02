@@ -1,21 +1,8 @@
 import React from 'react';
 
-import Card from './components/Card';
+import figures from '../../../utils/figures';
 
-const figures = [
-  'man',
-  'bear',
-  'snake',
-  'horse',
-  'rat',
-  'bee',
-  'beef',
-  'donkey',
-  'camel',
-  'spider',
-  'pork',
-  'rabbit',
-];
+import Card from './components/Card';
 
 class Board extends React.Component {
   /**
@@ -32,17 +19,30 @@ class Board extends React.Component {
     return a;
   }
 
-  static renderCards() {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    };
+    this.cardAction = this.cardAction.bind(this);
+    this.renderCards = this.renderCards.bind(this);
+  }
+
+  cardAction() {
+    console.log('test');
+  }
+
+  renderCards() {
     const children = [];
     let i;
     // Loop to create 12 cards of each color
     for (i = 0; i < 12; i += 1) {
       const figure = figures[Math.floor(i)];
       children.push(
-        <Card key={`red${i}`} color="red" figure={figure} />,
+        <Card key={`red${i}`} color="red" figure={figure} handler={this.cardAction} />,
       );
       children.push(
-        <Card key={`blue${i}`} color="blue" figure={figure} />,
+        <Card key={`blue${i}`} color="blue" figure={figure} handler={this.cardAction} />,
       );
     }
     return Board.shuffleCards(children);
@@ -51,7 +51,7 @@ class Board extends React.Component {
   render() {
     return (
       <div className="board">
-        {Board.renderCards()}
+        {this.renderCards()}
       </div>
     );
   }
