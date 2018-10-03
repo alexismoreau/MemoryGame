@@ -1,17 +1,19 @@
 body {
   background-color: #123;
 }
-.hello {
-  color: #fff ;
+
+.win {
+  color: #fff;
 }
+
 .board {
-  color: #fff ;
+  color: #fff;
 }
 
 .card {
   position: relative;
   width: 200px;
-  color: #fff ;
+  color: #fff;
   border: 1px solid white;
 }
 
@@ -33,4 +35,13 @@ body {
 
 .card.red {
   background: red;
+}
+
+.card.flipped {
+  background: grey;
+}
+
+.card.won {
+  background: yellow;
+
 }

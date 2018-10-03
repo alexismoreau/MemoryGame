@@ -1,7 +1,9 @@
 import React from 'react';
 
-const Card = ({ handler, color, figure }) => (
-  <div className={`card ${color}`} onClick={handler}>
+const Card = ({
+  id, color, figure, flipped, won, handler,
+}) => (
+  <div className={`card ${color} ${flipped ? 'flipped' : ''} ${won ? 'won' : ''}`} onClick={() => handler(id)}>
     <div className="card-content">
       {`card ${color} ${figure}`}
     </div>
