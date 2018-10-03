@@ -157,16 +157,14 @@ class Board extends React.Component {
   render() {
     const { cardsToDisplay } = this.state;
 
-    const hasWon = cardsToDisplay.find(card => (card.won === false));
-
-    console.log(hasWon);
     // we generate cards only if we refresh the page
     if (cardsToDisplay.length === 0) {
       this.generateCards();
     }
-    /*if (hasWon) {
+    const cardsLeftToPlay = cardsToDisplay.filter(card => (card.won === false));
+    if (cardsLeftToPlay.length === 0) {
       return <h1 className="win">YOU WIN</h1>;
-    }*/
+    }
     return (
       <div className="board">
         {cardsToDisplay.map(
